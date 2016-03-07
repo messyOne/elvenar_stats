@@ -134,7 +134,7 @@ Chart.defaults.global = {
 var ctx = document.getElementById("myChart").getContext("2d");
 
 var data = {
-	labels: ["19.02.2016", "22.02.2016", "23.02.2016", "24.02.2016", "25.02.2016", "26.02.2016", "27.02.2016", "29.02.2016", "01.03.2016", "02.03.2016"],
+	labels: ["19.02.2016", "22.02.2016", "23.02.2016", "24.02.2016", "25.02.2016", "26.02.2016", "27.02.2016", "29.02.2016", "01.03.2016", "02.03.2016", "07.03.2016"],
 	datasets: [
 		{
 			label: "messy",
@@ -144,7 +144,7 @@ var data = {
 			pointStrokeColor: "#fff",
 			pointHighlightFill: "#fff",
 			pointHighlightStroke: "rgba(220,220,220,1)",
-			data: [4759, 4991, 5011, 5042, 5098, 5296, 5378, 5503, 5712, 5850]
+			data: [4759, 4991, 5011, 5042, 5098, 5296, 5378, 5503, 5712, 5850, 6583]
 		},
 		{
 			label: "firegate666",
@@ -154,7 +154,7 @@ var data = {
 			pointStrokeColor: "#fff",
 			pointHighlightFill: "#fff",
 			pointHighlightStroke: "rgba(151,187,205,1)",
-			data: [2706, 3143, 3219, 3399, 3411, 3446, 3641, 3699, 4014, 4056]
+			data: [2706, 3143, 3219, 3399, 3411, 3446, 3641, 3699, 4014, 4056, 4606]
 		},
 		{
 			label: "lensboy",
@@ -164,7 +164,7 @@ var data = {
 			pointStrokeColor: "#fff",
 			pointHighlightFill: "#fff",
 			pointHighlightStroke: "rgba(151,187,205,1)",
-			data: [1642, 1985, 2173, 2420, 2538, 2622, 2632, 2872, 3057, 3153]
+			data: [1642, 1985, 2173, 2420, 2538, 2622, 2632, 2872, 3057, 3153, 3997]
 		},
 		{
 			label: "adler94",
@@ -174,7 +174,7 @@ var data = {
 			pointStrokeColor: "#fff",
 			pointHighlightFill: "#fff",
 			pointHighlightStroke: "rgba(151,187,205,1)",
-			data: [58, 108, 202, 211, 211, 217, 373, 504, 565, 606]
+			data: [58, 108, 202, 211, 211, 217, 373, 504, 565, 606, 952]
 		}
 	]
 };
