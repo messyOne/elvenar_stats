@@ -1,0 +1,18 @@
+nginx:
+  build: .
+  ports:
+    - "80:80"
+    - "443:443"
+    - "2222:22"
+    - "9000:9000"
+  links:
+    - postgresql:postgresql
+  volumes:
+    - ../:/var/www/default
+    - ./sites:/etc/nginx/conf.d
+    - ./logs:/var/log/supervisor
+
+postgresql:
+  image: postgres
+  ports:
+    - "5432:5432"
