@@ -1,6 +1,10 @@
 <?php
-	session_set_cookie_params(3600*24*365);
-	session_start();
+use Symfony\Component\Yaml\Yaml;
+
+include 'vendor/autoload.php';
+
+session_set_cookie_params(3600*24*365);
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -17,27 +21,46 @@
 	<form class="col-lg-4 col-lg-offset-4" method="post">
 		<div class="form-group">
 			<label for="user-1">messy</label>
-			<input type="number" class="form-control" id="user-1" placeholder="0">
+			<input type="number" class="form-control" name="user-1" placeholder="0" >
 		</div>
 		<div class="form-group">
 			<label for="user-2">firegate666</label>
-			<input type="number" class="form-control" id="user-2" placeholder="0">
+			<input type="number" class="form-control" name="user-2" placeholder="0" >
 		</div>
 		<div class="form-group">
 			<label for="user-3">lensboy</label>
-			<input type="number" class="form-control" id="user-3" placeholder="0">
+			<input type="number" class="form-control" name="user-3" placeholder="0" >
 		</div>
 		<div class="form-group">
 			<label for="user-4">adler94</label>
-			<input type="number" class="form-control" id="user-4" placeholder="0">
-		</div>
-		<div class="form-group">
-			<label for="password">Password</label>
-			<input type="password" class="form-control" id="password" placeholder="Password">
+			<input type="number" class="form-control" name="user-4" placeholder="0" >
 		</div>
 
-		<button type="submit" class="btn btn-default">Submit</button>
+		<?php if (!isset($_SESSION['logged_in'])): ?>
+
+			<div class="form-group">
+				<label for="password">Password</label>
+				<input type="password" class="form-control" name="password" placeholder="Password">
+			</div>
+		<?php endif; ?>
+
+		<input type="submit" value="Submit" name="submit" class="btn btn-default">
 	</form>
 </div>
 </body>
 </html>
+
+<?php
+
+$yaml = new Yaml();
+$config = $yaml->parse(file_get_contents('config.yml'));
+
+var_dump($config);
+
+if (isset($_POST['submit']) && ($_SESSION['logged_in'] || $_POST['password'] == 'test')) {
+	$_SESSION['logged_in'] = true;
+
+	$dbh = new PDO('pgsql:user=docker dbname=docker password=docker host=localhost');
+	$dbh->query();
+}
+?>
