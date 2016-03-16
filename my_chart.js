@@ -134,6 +134,8 @@ Chart.defaults.global = {
 var ctx = document.getElementById("myChart").getContext("2d");
 
 var data = {
+	labels: ["19.02.2016", "22.02.2016", "23.02.2016", "24.02.2016", "25.02.2016", "26.02.2016", "27.02.2016", "29.02.2016", "01.03.2016", "02.03.2016", "07.03.2016"
+		, "08.03.2016", "09.03.2016", "10.03.2015", "14.03.2015", "16.03.2016"],
 	datasets: [
 		{
 			label: "messy",
@@ -143,24 +145,7 @@ var data = {
 			pointStrokeColor: "#fff",
 			pointHighlightFill: "#fff",
 			pointHighlightStroke: "rgba(220,220,220,1)",
-			dataPoints: [
-			        { x: new Date(2016, 02, 19), y: 4759},
-			        { x: new Date(2016, 02, 22), y: 4991},
-			        { x: new Date(2016, 02, 23), y: 5011},
-			        { x: new Date(2016, 02, 24), y: 5042},
-			        { x: new Date(2016, 02, 25), y: 5098},
-			        { x: new Date(2016, 02, 26), y: 5296},
-			        { x: new Date(2016, 02, 27), y: 5378},
-			        { x: new Date(2016, 02, 29), y: 5503},
-			        { x: new Date(2016, 03, 01), y: 5712},
-			        { x: new Date(2016, 03, 02), y: 5850},
-			        { x: new Date(2016, 03, 07), y: 6583},
-			        { x: new Date(2016, 03, 08), y: 6735},
-			        { x: new Date(2016, 03, 09), y: 7105},
-			        { x: new Date(2016, 03, 10), y: 7220},
-			        { x: new Date(2016, 03, 14), y: 7712},
-			        { x: new Date(2016, 03, 16), y: 7958}
-			]
+			data: [4759, 4991, 5011, 5042, 5098, 5296, 5378, 5503, 5712, 5850, 6583, 6735, 7105, 7220, 7712, 7958]
 		},
 		{
 			label: "firegate666",
@@ -170,24 +155,7 @@ var data = {
 			pointStrokeColor: "#fff",
 			pointHighlightFill: "#fff",
 			pointHighlightStroke: "rgba(151,187,205,1)",
-			dataPoints: [
-			        { x: new Date(2016, 02, 19), y: 2706},
-			        { x: new Date(2016, 02, 22), y: 3143},
-			        { x: new Date(2016, 02, 23), y: 3219},
-			        { x: new Date(2016, 02, 24), y: 3399},
-			        { x: new Date(2016, 02, 25), y: 3411},
-			        { x: new Date(2016, 02, 26), y: 3446},
-			        { x: new Date(2016, 02, 27), y: 3641},
-			        { x: new Date(2016, 02, 29), y: 3699},
-			        { x: new Date(2016, 03, 01), y: 4014},
-			        { x: new Date(2016, 03, 02), y: 4056},
-			        { x: new Date(2016, 03, 07), y: 4606},
-			        { x: new Date(2016, 03, 08), y: 4606},
-			        { x: new Date(2016, 03, 09), y: 5138},
-			        { x: new Date(2016, 03, 10), y: 5331},
-			        { x: new Date(2016, 03, 14), y: 5420},
-			        { x: new Date(2016, 03, 16), y: 5462}
-			]
+			data: [2706, 3143, 3219, 3399, 3411, 3446, 3641, 3699, 4014, 4056, 4606, 4606, 5138, 5331, 5420, 5462]
 		},
 		{
 			label: "lensboy",
@@ -197,24 +165,7 @@ var data = {
 			pointStrokeColor: "#fff",
 			pointHighlightFill: "#fff",
 			pointHighlightStroke: "rgba(151,187,205,1)",
-			dataPoints: [
-			        { x: new Date(2016, 02, 19), y: 1642},
-			        { x: new Date(2016, 02, 22), y: 1985},
-			        { x: new Date(2016, 02, 23), y: 2173},
-			        { x: new Date(2016, 02, 24), y: 2420},
-			        { x: new Date(2016, 02, 25), y: 2538},
-			        { x: new Date(2016, 02, 26), y: 2622},
-			        { x: new Date(2016, 02, 27), y: 2632},
-			        { x: new Date(2016, 02, 29), y: 2872},
-			        { x: new Date(2016, 03, 01), y: 3057},
-			        { x: new Date(2016, 03, 02), y: 3153},
-			        { x: new Date(2016, 03, 07), y: 3997},
-			        { x: new Date(2016, 03, 08), y: 4139},
-			        { x: new Date(2016, 03, 09), y: 4277},
-			        { x: new Date(2016, 03, 10), y: 4318},
-			        { x: new Date(2016, 03, 14), y: 5081},
-			        { x: new Date(2016, 03, 16), y: 5313}
-			]
+			data: [1642, 1985, 2173, 2420, 2538, 2622, 2632, 2872, 3057, 3153, 3997, 4139, 4277, 4318, 5081, 5313]
 		},
 		{
 			label: "adler94",
@@ -224,24 +175,7 @@ var data = {
 			pointStrokeColor: "#fff",
 			pointHighlightFill: "#fff",
 			pointHighlightStroke: "rgba(151,187,205,1)",
-			dataPoints: [
-			        { x: new Date(2016, 02, 19), y: 58},
-			        { x: new Date(2016, 02, 22), y: 108},
-			        { x: new Date(2016, 02, 23), y: 202},
-			        { x: new Date(2016, 02, 24), y: 211},
-			        { x: new Date(2016, 02, 25), y: 211},
-			        { x: new Date(2016, 02, 26), y: 217},
-			        { x: new Date(2016, 02, 27), y: 373},
-			        { x: new Date(2016, 02, 29), y: 504},
-			        { x: new Date(2016, 03, 01), y: 565},
-			        { x: new Date(2016, 03, 02), y: 606},
-			        { x: new Date(2016, 03, 07), y: 952},
-			        { x: new Date(2016, 03, 08), y: 954},
-			        { x: new Date(2016, 03, 09), y: 1134},
-			        { x: new Date(2016, 03, 10), y: 1276},
-			        { x: new Date(2016, 03, 14), y: 1475},
-			        { x: new Date(2016, 03, 16), y: 1531}
-			]
+			data: [58, 108, 202, 211, 211, 217, 373, 504, 565, 606, 952, 954, 1134, 1276, 1475, 1531]
 		}
 	]
 };
