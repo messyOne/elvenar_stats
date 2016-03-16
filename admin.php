@@ -14,10 +14,10 @@ session_start();
 	<title>Admin area</title>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="style.css?version=1">
 </head>
 <body>
-<div class="container">
+<div id="main-container" class="container">
 	<form class="col-lg-4 col-lg-offset-4" method="post">
 		<div class="form-group">
 			<label for="user-1">messy</label>

@@ -6,18 +6,17 @@ nginx:
     - "2222:22"
     - "9000:9000"
   links:
-    - postgresql:postgresql
+    - db:db
   volumes:
     - ../:/var/www/default
     - ./sites:/etc/nginx/conf.d
     - ./logs:/var/log/supervisor
 
-postgresql:
-  image: postgres
-  ports:
-    - "5432:5432"
+db:
+  image: postgres:9.5
+  expose:
+    - 5432
   environment:
     POSTGRES_USER: docker
     POSTGRES_PASSWORD: docker
-    POSTGRES_DB: docker
 
