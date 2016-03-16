@@ -13,5 +13,5 @@
 	</div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
-<script src="https://cdn.rawgit.com/messyOne/elvenar_stats/master/my_chart.js?version=2"></script>
+<script src="https://cdn.rawgit.com/messyOne/elvenar_stats/master/my_chart.js"></script>
 </html>
