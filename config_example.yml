@@ -1,4 +1,5 @@
 password: grepo
+superpassword: grepo
 
 db:
   dbname: docker

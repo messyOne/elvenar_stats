@@ -60,7 +60,20 @@ var_dump($config);
 if (isset($_POST['submit']) && ($_SESSION['logged_in'] || $_POST['password'] == 'test')) {
 	$_SESSION['logged_in'] = true;
 
-	$dbh = new PDO('pgsql:user=docker dbname=docker password=docker host=localhost');
-	$dbh->query();
+	$dbh = new PDO('pgsql:user=docker dbname=docker password=docker host=db');
+	$stmt = $dbh->prepare('
+		INSERT INTO points (date, "user", points) VALUES
+			(:date, :user, :points)
+		ON CONFLICT (date, "user")
+		DO UPDATE SET points = EXCLUDED.points + 1
+	');
+	$stmt->bindParam(':date', $date);
+	$stmt->bindParam(':user', $user);
+	$stmt->bindParam(':points', $points);
+
+	$date = 123;
+	$user = 'test';
+	$points = 123;
+	$stmt->execute();
 }
 ?>
