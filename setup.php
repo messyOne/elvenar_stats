@@ -1,20 +1,11 @@
 <?php
 
-use Symfony\Component\Yaml\Yaml;
+include 'global.php';
 
-$yaml = new Yaml();
-$config = $yaml->parse(file_get_contents('config.yml'));
+$config = getConfig();
 
 if (isset($_GET['password']) && $_GET['password'] == $config['superpassword']) {
-	$dbh = new PDO(
-		sprintf(
-			'pgsql:user=%s dbname=%s password=%s host=%s',
-			$config['db']['user'],
-			$config['db']['db'],
-			$config['db']['password'],
-			$config['db']['host']
-		)
-	);
+	$dbh = connectDb();
 	$dbh->query('
 		CREATE TABLE public.points (
 		  	date INTEGER NOT NULL,

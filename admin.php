@@ -1,7 +1,6 @@
 <?php
-use Symfony\Component\Yaml\Yaml;
 
-include 'vendor/autoload.php';
+include 'global.php';
 
 session_set_cookie_params(3600*24*365);
 session_start();
@@ -52,21 +51,13 @@ session_start();
 
 <?php
 
-$yaml = new Yaml();
-$config = $yaml->parse(file_get_contents('config.yml'));
+$config = getConfig();
 
 if (isset($_POST['submit']) && ($_SESSION['logged_in'] || $_POST['password'] == $config['password'])) {
 	$_SESSION['logged_in'] = true;
 
-	$dbh = new PDO(
-		sprintf(
-			'pgsql:user=%s dbname=%s password=%s host=%s',
-			$config['db']['user'],
-			$config['db']['db'],
-			$config['db']['password'],
-			$config['db']['host']
-		)
-	);
+	$dbh = connectDb();
+
 	$stmt = $dbh->prepare('
 		INSERT INTO points (date, "user", points) VALUES
 			(:date, :user, :points)
