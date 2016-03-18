@@ -55,25 +55,35 @@ session_start();
 $yaml = new Yaml();
 $config = $yaml->parse(file_get_contents('config.yml'));
 
-var_dump($config);
-
-if (isset($_POST['submit']) && ($_SESSION['logged_in'] || $_POST['password'] == 'test')) {
+if (isset($_POST['submit']) && ($_SESSION['logged_in'] || $_POST['password'] == $config['password'])) {
 	$_SESSION['logged_in'] = true;
 
-	$dbh = new PDO('pgsql:user=docker dbname=docker password=docker host=db');
+	$dbh = new PDO(
+		sprintf(
+			'pgsql:user=%s dbname=%s password=%s host=%s',
+			$config['db']['user'],
+			$config['db']['db'],
+			$config['db']['password'],
+			$config['db']['host']
+		)
+	);
 	$stmt = $dbh->prepare('
 		INSERT INTO points (date, "user", points) VALUES
 			(:date, :user, :points)
 		ON CONFLICT (date, "user")
-		DO UPDATE SET points = EXCLUDED.points + 1
+		DO UPDATE SET points = EXCLUDED.points
 	');
 	$stmt->bindParam(':date', $date);
 	$stmt->bindParam(':user', $user);
 	$stmt->bindParam(':points', $points);
 
-	$date = 123;
-	$user = 'test';
-	$points = 123;
-	$stmt->execute();
+	$date = strtotime('today midnight');
+	foreach ($_POST as $key => $value) {
+		if (strpos($key, 'user-') !== false) {
+			$user = $key;
+			$points = $value;
+			$stmt->execute();
+		}
+	}
 }
 ?>

@@ -2,7 +2,7 @@ password: grepo
 superpassword: grepo
 
 db:
-  dbname: docker
+  db: docker
   user: docker
   password: docker
-  host: localhost
+  host: db
