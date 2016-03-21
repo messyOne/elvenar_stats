@@ -14,4 +14,7 @@ if (isset($_GET['password']) && $_GET['password'] == $config['superpassword']) {
 	  	PRIMARY KEY (date, "user")
 		);
 	');
+	echo 'Done';
 }
+
+header('HTTP/1.1 403 Forbidden');
