@@ -17,5 +17,6 @@ use Loo\Data\Settings;
 </div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
-<script src="https://cdn.rawgit.com/messyOne/elvenar_stats/master/my_chart.js"></script>
+<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="my_chart.js"></script>
 </html>
