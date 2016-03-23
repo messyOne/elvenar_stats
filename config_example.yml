@@ -1,8 +1,0 @@
-password: grepo
-superpassword: grepo
-
-db:
-  dbname: docker
-  user: docker
-  password: docker
-  host: localhost
