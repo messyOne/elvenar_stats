@@ -22,6 +22,7 @@ RUN apt-get update && apt-get install -my --force-yes \
   htop \
   curl \
   wget \
+  git \
   php7.0-pgsql \
   php7.0-common \
   php7.0-fpm \
@@ -32,6 +33,10 @@ RUN apt-get update && apt-get install -my --force-yes \
   php7.0-cli \
   php-xdebug \
   php-memcached
+
+# Install composer
+RUN curl -sS https://getcomposer.org/installer | php
+RUN mv composer.phar /usr/local/bin/composer
 
 # Add configuration files
 COPY conf/nginx.conf /etc/nginx/
