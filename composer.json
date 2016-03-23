@@ -3,6 +3,7 @@
 	"description": "Loo - App",
 	"homepage": "http://www.weiss-daniel.de",
 	"require": {
+		"symfony/yaml": "@stable"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "@stable",
