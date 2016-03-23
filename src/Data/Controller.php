@@ -4,7 +4,6 @@ namespace Data;
 
 use Common\Controller\AbstractSession;
 use Loo\Database\DatabaseFactory;
-use Loo\Helper\Param;
 
 /**
  * The data controller of the index page
@@ -16,13 +15,14 @@ class Controller extends AbstractSession
      *
      * @throws \Loo\Exception\FieldAlreadyExistsException
      */
-    public function actionGetLabels()
+    public function actionLabels()
     {
         $view = $this->getViewFactory()->getJson();
 
         $stmt = (new DatabaseFactory())->getEntityManager()->getConnection()->executeQuery('
             SELECT DISTINCT date
-            FROM points;
+            FROM points
+            ORDER BY date;
         ');
 
         $i = 0;
@@ -34,25 +34,29 @@ class Controller extends AbstractSession
     }
 
     /**
-     * Get all points for a specific player
+     * Get all points
      *
      * @throws \Loo\Exception\FieldAlreadyExistsException
      */
     public function actionPoints() {
         $view = $this->getViewFactory()->getJson();
-        $data = $this->getRequest()->getData();
-        $user = Param::str($data, 'user');
 
         $stmt = (new DatabaseFactory())->getEntityManager()->getConnection()->executeQuery('
-            SELECT DISTINCT points
+            SELECT "user", points
             FROM points
-            WHERE "user" = :user;
-        ', [':user' => $user]);
+            ORDER BY date
+        ');
 
-        $i = 0;
+        $result = [];
         foreach ($stmt->fetchAll() as $row) {
-            $view->assignValue($i++, $row['points']);
+            if (!isset($result[$row['user']])) {
+                $result[$row['user']] = [];
+            }
+
+            $result[$row['user']][] = $row['points'];
         }
+
+        $view->assign($result);
 
         $this->setView($view);
     }
