@@ -42,7 +42,7 @@ class Controller extends AbstractSession
 
             $date = strtotime('today midnight');
             foreach ($_POST as $user => $points) {
-                if (strpos($user, 'user-') !== false) {
+                if (strpos($user, 'user-') !== false && $points > 0) {
                     $stmt->execute([
                         ':date' => $date,
                         ':user' => $user,
